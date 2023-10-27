@@ -8,7 +8,6 @@ const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const path = require("path");
-const fs=require('fs')
 dotenv.config();
 connectDB();
 
@@ -22,14 +21,10 @@ app.use(errorHandler);
 // --------------------------deployment------------------------------
 const __dirname1 = path.resolve();
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));  
-  app.get('*', (req, res) => {
-    try {
-      console.log("get");
-      res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
-    } catch (err) {
-      console.log("err");
-    }
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.get("*", (req, res) => {
+    console.log("get");
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
   });
 } else {
   app.get("/", (req, res) => {
