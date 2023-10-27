@@ -12,7 +12,7 @@ import { useState } from "react";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 
 const App = () => {
-  const [search,setSearch]=useState("");
+  const [setSearch]=useState("");
   
   return (
     <BrowserRouter>

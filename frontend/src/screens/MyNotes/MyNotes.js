@@ -21,7 +21,7 @@ const MyNotes = ({search}) => {
   const noteDelete = useSelector((state) => state.noteDelete);
   const {
     loading: loadingDelete,
-    error: errorDelete,
+    // error: errorDelete,
     success: successDelete,
   } = noteDelete;
 
