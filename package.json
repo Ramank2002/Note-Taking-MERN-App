@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
+    "start": "node server.js",
     "client": "npm start --prefix frontend",
+    "prebuild": "npm install",
     "dev": "concurrently \"npm start\" \"npm run client\"",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
+    "build": "cd frontend && npm install && npm run build"
   },
   "author": "Raman Kumar Gupta",
   "license": "ISC",
